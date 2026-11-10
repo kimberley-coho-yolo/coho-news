@@ -1,0 +1,153 @@
+# ==================================================================
+#  IT SUPPORT PAGE SETTINGS AND CATEGORIES
+#  This file controls everything on the IT support page.
+#  Edit the words here and commit. You don't need to touch the page itself.
+#
+#  Tips:
+#  - Keep the spaces at the start of each line exactly as they are.
+#  - Put text in "double quotes" if it contains a colon (:) or #.
+#  - To add a category, copy a whole block starting with "- id:" and
+#    give it a new id (lowercase, dashes, no spaces).
+# ==================================================================
+
+# The Microsoft Form for support tickets. Use the normal share link
+# (Collect responses > Copy link). One form with branching is recommended,
+# see FORM-BLUEPRINT.md. Leave blank until the form exists.
+ticket_form_url: ""
+
+# Shown in the red "urgent" box at the top of the page.
+urgent_phone: ""            # e.g. "07 3870 0849"
+urgent_email: ""            # e.g. "it-help@cohogroup.com.au"
+
+# Improvement request form (already exists in Microsoft Forms).
+improvement:
+  # Normal link, used for the "Open the form" button
+  form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5URTBYOFRKMUFDTDg4WjgzN09NUlpUSURXTyQlQCN0PWcu"
+  # Set to true to also show the form inside the page.
+  # Only works if the form is set to "Anyone can respond".
+  embed: true
+
+# ------------------------------------------------------------------
+#  SUPPORT CATEGORIES
+#  title:      what staff click on
+#  summary:    one line under the title
+#  examples:   short examples so people pick the right one
+#  have_ready: what to gather before opening the form
+#  form_asks:  the questions the form asks for this category
+#              (build these into the matching section of your Microsoft Form)
+#  notice:     optional highlighted note
+#  form_url:   optional, a different form just for this category
+# ------------------------------------------------------------------
+categories:
+
+  - id: new-starter
+    title: "Set up a new starter"
+    summary: "Equipment, accounts and access for someone joining Coho Group."
+    examples: "New employee, contractor or transfer from another site"
+    notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested."
+    have_ready:
+      - "Starter's full name, position and start date"
+      - "Line manager, site or desk location, and whether they're in the office or hybrid"
+      - "Cost centre for equipment"
+      - "Which systems, shared mailboxes and Teams channels they need"
+    form_asks:
+      - q: "Starter's full name"
+      - q: "Position and department"
+      - q: "Start date"
+      - q: "Line manager"
+      - q: "Site and desk location"
+      - q: "Work pattern"
+        options: "Office · Hybrid · Mostly on site"
+      - q: "Cost centre for equipment"
+      - q: "Equipment needed"
+        options: "Standard office kit (laptop, dock, 2 monitors, keyboard and mouse, headset) · Extras such as webcam, spare charger or monitor arm · Mobile phone"
+      - q: "Software and systems needed"
+        options: "Microsoft 365 · Accounting system (say which role) · CRM or billing · PDF editor · Other"
+      - q: "Shared mailboxes, distribution lists, Teams channels and SharePoint folders to add them to"
+      - q: "Phone number or Teams Phone needed?"
+      - q: "Anything else IT should know?"
+
+  - id: software
+    title: "Software problem or question"
+    summary: "Something isn't working in a program, or you need help using it."
+    examples: "Outlook won't send, Excel keeps crashing, can't join a Teams call"
+    have_ready:
+      - "The name of the software"
+      - "A screenshot or photo of any error message"
+      - "Roughly when it started"
+    form_asks:
+      - q: "Which software is the issue occurring in?"
+        options: "Outlook · Teams · Excel · Word · OneDrive or SharePoint · Accounting system · Driver app or website · Other"
+      - q: "What were you trying to do when it happened?"
+      - q: "What happened instead? Copy any error message word for word"
+      - q: "When did it start?"
+        options: "Today · This week · Longer ago · It's always been like this"
+      - q: "Is it just you, or are others affected too?"
+      - q: "Which device were you using?"
+        options: "Work laptop · Work phone · Personal phone · Site or shared computer"
+      - q: "Upload a screenshot (optional)"
+      - q: "Is this a problem, or a how-do-I question?"
+
+  - id: hardware
+    title: "Laptop, phone or equipment problem"
+    summary: "A device is broken, slow, damaged or not connecting."
+    examples: "Laptop won't turn on, monitor not displaying, headset not working"
+    have_ready:
+      - "The asset tag or serial number (usually on a sticker underneath)"
+      - "A photo of any damage"
+    form_asks:
+      - q: "What type of equipment?"
+        options: "Laptop · Monitor · Docking station · Keyboard or mouse · Headset or webcam · Mobile phone · Printer or scanner · Other"
+      - q: "Asset tag or serial number"
+      - q: "What's wrong with it?"
+      - q: "Is it damaged, lost or stolen?"
+      - q: "Upload a photo (optional)"
+
+  - id: account
+    title: "Sign-in, password or Authenticator"
+    summary: "You can't sign in, or need help with the phone approval."
+    examples: "Forgotten password, new phone, Authenticator not prompting"
+    notice: "Never type your password into the form. IT will never ask for it."
+    have_ready:
+      - "A phone number IT can call you on"
+      - "Whether you've changed phones recently"
+    form_asks:
+      - q: "What's happening?"
+        options: "Forgotten password · Account locked · Authenticator app not working · Got a new phone · Something else"
+      - q: "Which account or system?"
+      - q: "Best phone number to reach you"
+      - q: "When are you available for a call?"
+
+  - id: access
+    title: "Access to a folder, mailbox or system"
+    summary: "You need access to something, or someone else's access needs changing."
+    examples: "Need the debtors folder, add me to a shared mailbox, remove a leaver"
+    notice: "Access requests need your manager's approval. Include their name so IT can check with them."
+    have_ready:
+      - "The exact name or link of the folder, mailbox, Teams channel or system"
+      - "Your manager's name"
+    form_asks:
+      - q: "Who needs the access?"
+      - q: "What do they need access to? Paste the link if you have one"
+      - q: "What level of access?"
+        options: "View only · Edit · Remove access"
+      - q: "Why is it needed?"
+      - q: "Approving manager"
+      - q: "Is it needed by a particular date?"
+
+  - id: other
+    title: "Something else"
+    summary: "Not sure where it fits? Tell us here and we'll sort it."
+    examples: "Website, printing, ordering equipment, general questions"
+    have_ready:
+      - "As much detail as you can, and a screenshot if it helps"
+    form_asks:
+      - q: "Describe what you need"
+      - q: "Upload a screenshot or file (optional)"
+
+# Questions the form asks everyone, whatever the category
+common_asks:
+  - q: "Your name"
+  - q: "Site or office"
+  - q: "How much is this affecting your work?"
+    options: "I can't work · I can work but it's slowing me down · No rush, just a question"
