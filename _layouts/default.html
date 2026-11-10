@@ -6,10 +6,10 @@
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.tagline | strip_html | escape }}">
   {% if site.hide_from_search %}<meta name="robots" content="noindex, nofollow">{% endif %}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; frame-src https://forms.office.com https://forms.microsoft.com https://docs.google.com; form-action 'none'; base-uri 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; frame-src https://forms.office.com https://forms.microsoft.com https://forms.cloud.microsoft https://docs.google.com; form-action 'none'; base-uri 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" href="{{ '/assets/favicon.png' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% feed_meta %}
 </head>
 <body>
@@ -22,6 +22,7 @@
       <nav class="nav" aria-label="Main">
         <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>News</a>
         <a href="{{ '/key-dates/' | relative_url }}"{% if page.url == '/key-dates/' %} aria-current="page"{% endif %}>Key dates</a>
+        <a href="{{ '/it-support/' | relative_url }}"{% if page.url == '/it-support/' %} aria-current="page"{% endif %}>IT support</a>
         <a class="nav-cta" href="{{ '/ask/' | relative_url }}"{% if page.url == '/ask/' %} aria-current="page"{% endif %}>Ask a question</a>
       </nav>
     </div>

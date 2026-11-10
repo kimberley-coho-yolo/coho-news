@@ -204,3 +204,95 @@ h3 {
   body { font-size: 10.5pt; }
   h1 { font-size: 20pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
 }
+
+/* ---------- FAQ (Ask page) ---------- */
+.faq { max-width: 44rem; margin-top: 28px; }
+.faq h3 { margin: 0 0 10px; }
+.faq details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); margin-bottom: 8px; }
+.faq details[open] { border-color: var(--coho-black); }
+.faq summary {
+  cursor: pointer; list-style: none; position: relative;
+  padding: 14px 48px 14px 16px; font-weight: 700; color: var(--coho-black);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  font-size: 1.5rem; line-height: 1; color: var(--coho-red); font-weight: 700;
+}
+.faq details[open] summary::after { content: "\2212"; } /* minus sign */
+.faq summary:hover { background: var(--light-grey); }
+.faq summary:focus-visible { outline: 3px solid var(--coho-black); outline-offset: 2px; }
+.faq-answer { padding: 4px 16px 14px; border-top: 1px solid var(--line); }
+.faq-answer ul { padding-left: 1.2em; }
+.faq-answer li { margin: 6px 0; }
+.faq-lead { font-size: 1.05rem; font-weight: 700; color: var(--coho-black); padding-left: 12px; border-left: 4px solid var(--coho-red); }
+.faq-warning { background: var(--light-grey); padding: 10px 14px; border-left: 4px solid var(--coho-black); }
+.faq-answer .prose table { margin: 8px 0; }
+
+.faq-contacts { margin-top: 44px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 8px; }
+.contact-card { background: var(--light-grey); border-top: 4px solid var(--coho-red); padding: 14px 16px; }
+.contact-card p { margin: 6px 0 0; }
+.ask-section { margin-top: 44px; scroll-margin-top: 16px; }
+
+@media print {
+  .faq details { break-inside: avoid; }
+  .faq details:not([open]) > .faq-answer { display: block; }
+  .ask-section { display: none; }
+}
+
+/* ---------- IT support click-through (IT-support.md) ---------- */
+/* Works without JavaScript: each category panel shows when its #link is clicked */
+.it-step { display: none; scroll-margin-top: 16px; }
+.it-step:target { display: block; }
+.it-flow:has(.it-step:target) .it-chooser,
+.it-flow:has(.it-step:target) .urgent { display: none; }
+
+.urgent { max-width: 44rem; background: var(--coho-black); color: var(--white); padding: 14px 18px; border-left: 6px solid var(--coho-red); margin: 8px 0 28px; }
+.urgent p { margin: 4px 0; }
+.urgent a { color: var(--white); }
+.urgent-title { font-weight: 700; font-size: 1.05rem; }
+
+.steps { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0 0 18px; counter-reset: step; font-size: .85rem; }
+.steps li { counter-increment: step; display: flex; align-items: center; gap: 6px; color: var(--muted); padding-right: 10px; }
+.steps li::before {
+  content: counter(step); display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line); font-weight: 700; color: var(--muted);
+}
+.steps li.is-current { color: var(--coho-black); font-weight: 700; }
+.steps li.is-current::before { background: var(--coho-red); border-color: var(--coho-red); color: var(--white); }
+.steps li.is-done::before { content: "\2713"; background: var(--coho-black); border-color: var(--coho-black); color: var(--white); }
+
+.it-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.it-card {
+  position: relative; display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 44px 16px 16px; border: 1px solid var(--line); border-top: 4px solid var(--coho-black);
+  border-radius: var(--radius); text-decoration: none; color: var(--coho-black); background: var(--white);
+}
+.it-card:hover { border-color: var(--coho-black); border-top-color: var(--coho-red); color: var(--coho-black); }
+.it-card:focus-visible { outline: 3px solid var(--coho-black); outline-offset: 2px; }
+.it-card-title { font-weight: 700; font-size: 1.08rem; }
+.it-card-summary { font-size: .95rem; }
+.it-card-eg { font-size: .85rem; color: var(--muted); }
+.it-card-go { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--coho-red); font-weight: 700; }
+.it-card-idea { max-width: 44rem; background: var(--light-grey); border-top-color: var(--coho-red); }
+
+.it-step-title { display: block; border: 0; padding: 0; margin: 4px 0 6px; font-size: 1.7rem; }
+.it-notice { background: var(--light-grey); border-left: 4px solid var(--coho-red); padding: 10px 14px; max-width: 44rem; }
+.it-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; align-items: start; }
+.it-panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px 12px; }
+.it-panel h3 { margin-top: 14px; }
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li { position: relative; padding-left: 28px; margin: 8px 0; }
+.checklist li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--coho-red); font-weight: 700; }
+.asks { padding-left: 1.3em; margin: 0; }
+.asks li { margin: 8px 0; }
+.opts { display: block; font-size: .85rem; color: var(--muted); }
+.it-submit { background: var(--light-grey); padding: 18px 20px; border-top: 4px solid var(--coho-red); margin: 8px 0 24px; }
+.it-submit p { margin: 6px 0 12px; }
+.it-next ol { padding-left: 1.3em; }
+
+@media print {
+  .it-step { display: block; break-before: page; }
+  .it-chooser, .urgent, .it-submit .button { display: none; }
+}
