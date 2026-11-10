@@ -1,0 +1,38 @@
+# ------------------------------------------------------------------
+#  Coho Group Technology News - site settings
+#  Edit the values below, then commit. The site rebuilds in ~1 minute.
+# ------------------------------------------------------------------
+
+title: "Technology Roadmap News"
+tagline: "Updates on our move to Microsoft 365, ISO 27001 and how we look after our systems"
+org: "Coho Group"
+
+# Who staff can contact (shown in the footer)
+contact_name: "Kimberley, Business System and Technology Lead"
+contact_email: "it-help@example.com"   # <-- replace with your IT help address
+
+# Question form: paste the EMBED link from Microsoft Forms or Google Forms.
+#   Microsoft Forms: Share > Embed > copy the src="..." link
+#   Google Forms:    Send > <> (embed) > copy the src="..." link
+# Leave blank until you have one; the Ask page will show the contact email instead.
+form_embed_url: ""
+# A normal (non-embed) link to the same form, used for the "open in a new tab" button
+form_link_url: ""
+
+# Keep the site out of Google and other search engines (staff get the link by email)
+hide_from_search: true
+
+# If you use a custom address like news.cohogroup.com, leave baseurl blank.
+# If you use https://YOURNAME.github.io/coho-news/, set baseurl to "/coho-news"
+baseurl: ""
+
+# ---- Technical settings: no need to change below this line ----
+timezone: Australia/Brisbane
+permalink: /news/:year/:month/:day/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+exclude:
+  - README.md
+  - HOW-TO-POST.md
+  - SETUP.md

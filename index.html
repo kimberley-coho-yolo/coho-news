@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1>What's changing, and when</h1>
+  <p>{{ site.tagline }}. New updates are posted here every fortnight, in plain language.</p>
+</section>
+
+{% assign latest = site.posts.first %}
+{% if latest %}
+<a class="card card-feature" href="{{ latest.url | relative_url }}">
+  <span class="label">Latest update</span>
+  {% if latest.tag %}<span class="tag">{{ latest.tag }}</span>{% endif %}
+  <h2>{{ latest.title }}</h2>
+  <p class="meta">{{ latest.date | date: "%-d %B %Y" }}</p>
+  <p>{{ latest.summary | default: latest.excerpt | strip_html | truncatewords: 40 }}</p>
+  <span class="more">Read more &rarr;</span>
+</a>
+{% endif %}
+
+{% if site.posts.size > 1 %}
+<h2 class="section-title">Earlier updates</h2>
+<ul class="post-list">
+  {% for post in site.posts offset: 1 %}
+  <li>
+    <a class="card" href="{{ post.url | relative_url }}">
+      {% if post.tag %}<span class="tag">{{ post.tag }}</span>{% endif %}
+      <h3>{{ post.title }}</h3>
+      <p class="meta">{{ post.date | date: "%-d %B %Y" }}</p>
+      <p>{{ post.summary | default: post.excerpt | strip_html | truncatewords: 28 }}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

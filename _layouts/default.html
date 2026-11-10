@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.tagline | strip_html | escape }}">
+  {% if site.hide_from_search %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'none'; frame-src https://forms.office.com https://forms.microsoft.com https://docs.google.com; form-action 'none'; base-uri 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="{{ '/assets/favicon.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  {% feed_meta %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.org }}" width="52" height="49">
+        <span class="brand-text"><span class="brand-kicker">{{ site.org }}</span>{{ site.title }}</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>News</a>
+        <a href="{{ '/key-dates/' | relative_url }}"{% if page.url == '/key-dates/' %} aria-current="page"{% endif %}>Key dates</a>
+        <a class="nav-cta" href="{{ '/ask/' | relative_url }}"{% if page.url == '/ask/' %} aria-current="page"{% endif %}>Ask a question</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Nobody from Coho Group will ever ask for your password.</strong> If a message asks for it, don't reply. Report it.</p>
+      <p>Questions? <a href="{{ '/ask/' | relative_url }}">Ask here</a> or contact {{ site.contact_name }}{% if site.contact_email %} at <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>{% endif %}.</p>
+      <p class="muted">{{ site.org }} · For staff. Please don't share outside the company.</p>
+    </div>
+  </footer>
+</body>
+</html>
