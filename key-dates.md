@@ -18,7 +18,7 @@ These are the **planned** dates. If anything moves, we'll update this page and t
 | March 2027 | Pilot group moves first (about 10 people, including our champions) |
 | April 2027 | Wave 1 moves the second nominated team |
 | May 2027 | Wave 2 moves next in line, this wave continues for one team per fortnight |
-| August 2027 | Wave 3 moves. Everyone is on Microsoft 365 by **14 June 2027** |
+| August 2027 | Wave 3 moves. Everyone is on Microsoft 365 by **31 August 2027** |
 | August to November 2027 | Extra help on hand while everyone settles in |
 | **1 December 2027** | Google accounts close |
 
