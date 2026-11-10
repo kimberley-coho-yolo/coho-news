@@ -16,7 +16,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.org }}" width="52" height="49">
+        <img class="logo" src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.org }}" width="120" height="113">
         <span class="brand-text"><span class="brand-kicker">{{ site.org }}</span>{{ site.title }}</span>
       </a>
       <nav class="nav" aria-label="Main">
@@ -26,16 +26,18 @@
       </nav>
     </div>
   </header>
+  <div class="split-bar" aria-hidden="true"></div>
 
   <main class="wrap main">
     {{ content }}
   </main>
 
+  <div class="split-bar" aria-hidden="true"></div>
   <footer class="site-footer">
     <div class="wrap">
       <p><strong>Nobody from Coho Group will ever ask for your password.</strong> If a message asks for it, don't reply. Report it.</p>
       <p>Questions? <a href="{{ '/ask/' | relative_url }}">Ask here</a> or contact {{ site.contact_name }}{% if site.contact_email %} at <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>{% endif %}.</p>
-      <p class="muted">{{ site.org }} · For staff. Please don't share outside the company.</p>
+      <p class="muted"><strong>{{ site.org }}</strong> · For staff. Please don't share outside the company.</p>
     </div>
   </footer>
 </body>
