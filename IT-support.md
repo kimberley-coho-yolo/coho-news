@@ -64,11 +64,21 @@ permalink: /it-support/
       </ul>
     </div>
     <div class="it-panel">
+      {% if cat.forms %}
+      <h3>The forms will ask</h3>
+      {% for f in cat.forms %}
+      <p class="asks-form"><span class="form-num">{{ forloop.index }}</span> {{ f.title }}</p>
+      <ol class="asks">
+        {% for a in f.asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}
+      </ol>
+      {% endfor %}
+      {% else %}
       <h3>The form will ask</h3>
       <ol class="asks">
         {% unless cat.skip_common %}{% for a in it.common_asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}{% endunless %}
         {% for a in cat.form_asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}
       </ol>
+      {% endif %}
     </div>
   </div>
 
@@ -76,7 +86,21 @@ permalink: /it-support/
     <ol class="steps" aria-label="Progress">
       <li class="is-done">Choose</li><li class="is-done">Get ready</li><li class="is-current">Lodge the form</li>
     </ol>
-    {% if form_url != "" %}
+    {% if cat.forms %}
+    <p>Fill these in <strong>in order</strong>. Each opens Microsoft Forms in a new tab. Sign in with your Coho work account.</p>
+    <ol class="form-steps">
+      {% for f in cat.forms %}
+      <li class="form-step">
+        <span class="form-num" aria-hidden="true">{{ forloop.index }}</span>
+        <div class="form-step-body">
+          <strong>{{ f.title }}</strong>
+          {% if f.when %}<span class="meta">{{ f.when }}</span>{% endif %}
+        </div>
+        <a class="button" href="{{ f.url }}" target="_blank" rel="noopener">Open form {{ forloop.index }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+    {% elsif form_url != "" %}
     {% if cat.form_url %}<p>This opens the <strong>{{ cat.title }}</strong> form. {% if cat.sign_in %}Sign in with your Coho work account.{% else %}You don't need to sign in.{% endif %}</p>{% else %}<p>When the form asks what you need help with, choose <strong>{{ cat.title }}</strong>.</p>{% endif %}
     <a class="button" href="{{ form_url }}" target="_blank" rel="noopener">Open the form</a>
     <p class="meta">Opens Microsoft Forms in a new tab.</p>

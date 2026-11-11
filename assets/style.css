@@ -296,3 +296,15 @@ h3 {
   .it-step { display: block; break-before: page; }
   .it-chooser, .urgent, .it-submit .button { display: none; }
 }
+
+/* ---------- Multi-form steps (e.g. new starter) ---------- */
+.form-num {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--coho-red); color: var(--white); font-weight: 700; font-size: .85rem;
+}
+.asks-form { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--coho-black); margin: 14px 0 4px; }
+.form-steps { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 10px; }
+.form-step { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--white); border: 1px solid var(--line); padding: 12px 14px; }
+.form-step-body { flex: 1 1 220px; display: flex; flex-direction: column; gap: 2px; }
+.form-step .button { margin-left: auto; }
