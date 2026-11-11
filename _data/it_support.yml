@@ -50,10 +50,11 @@ categories:
     examples: "New employee, contractor or transfer from another site"
     notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested. Both forms need you to sign in with your Coho work account."
     have_ready:
-      - "Starter's first name, surname, date of birth, home address and personal email (for payroll)"
-      - "Position title, department, start date and end date (if a fixed term)"
-      - "Whether they're an office or non-office user"
-      - "For IT equipment: desk or location, office or hybrid, cost centre, and the software and access they need"
+      - "Starter's first name, surname, position title and start date"
+      - "Starter's home email and address for payroll preparation"
+      - "Their department, desk or location, and whether they're in the office or hybrid"
+      - "Cost centre for equipment"
+      - "Which software, systems, shared mailboxes and Teams channels they need"
     # Two forms, filled in one after the other. Add or remove blocks to change the steps.
     forms:
       - title: "Request for Coho Group new starter"
