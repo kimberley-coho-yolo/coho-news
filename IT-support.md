@@ -66,7 +66,7 @@ permalink: /it-support/
     <div class="it-panel">
       <h3>The form will ask</h3>
       <ol class="asks">
-        {% for a in it.common_asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}
+        {% unless cat.skip_common %}{% for a in it.common_asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}{% endunless %}
         {% for a in cat.form_asks %}<li>{{ a.q }}{% if a.options %}<span class="opts">{{ a.options }}</span>{% endif %}</li>{% endfor %}
       </ol>
     </div>
@@ -77,9 +77,9 @@ permalink: /it-support/
       <li class="is-done">Choose</li><li class="is-done">Get ready</li><li class="is-current">Lodge the form</li>
     </ol>
     {% if form_url != "" %}
-    <p>When the form asks what you need help with, choose <strong>{{ cat.title }}</strong>.</p>
-    <a class="button" href="{{ form_url }}" target="_blank" rel="noopener">Open the support form</a>
-    <p class="meta">Opens Microsoft Forms in a new tab. Sign in with your work account if asked.</p>
+    {% if cat.form_url %}<p>This opens the <strong>{{ cat.title }}</strong> form. {% if cat.sign_in %}Sign in with your Coho work account.{% else %}You don't need to sign in.{% endif %}</p>{% else %}<p>When the form asks what you need help with, choose <strong>{{ cat.title }}</strong>.</p>{% endif %}
+    <a class="button" href="{{ form_url }}" target="_blank" rel="noopener">Open the form</a>
+    <p class="meta">Opens Microsoft Forms in a new tab.</p>
     {% else %}
     <p class="it-notice"><strong>The support form is coming soon.</strong> Until then, email {% if it.urgent_email != "" %}<a href="mailto:{{ it.urgent_email }}?subject={{ cat.title | url_encode }}">{{ it.urgent_email }}</a>{% else %}<a href="mailto:{{ site.contact_email }}?subject={{ cat.title | url_encode }}">{{ site.contact_email }}</a>{% endif %} with the details above.</p>
     {% endif %}

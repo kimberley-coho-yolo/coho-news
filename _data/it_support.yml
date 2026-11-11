@@ -37,38 +37,46 @@ improvement:
 #              (build these into the matching section of your Microsoft Form)
 #  notice:     optional highlighted note
 #  form_url:   optional, a different form just for this category
+#  sign_in:    true if the form only accepts Coho work accounts
+#  skip_common: true hides the shared "common_asks" questions for this category
 # ------------------------------------------------------------------
 categories:
 
   - id: new-starter
     title: "Set up a new starter"
-    summary: "Equipment, accounts and access for someone joining Coho Group."
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UNkhUTldDU1dXNzE5VUZCNTNNMDBLNDM0RiQlQCN0PWcu"
+    skip_common: true
+    sign_in: true
+    summary: "Line managers: request equipment, software and access for someone joining Coho Group."
     examples: "New employee, contractor or transfer from another site"
-    notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested."
+    notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested. IT will confirm the order and record asset numbers once equipment is issued."
     have_ready:
-      - "Starter's full name, position and start date"
-      - "Line manager, site or desk location, and whether they're in the office or hybrid"
+      - "Starter's first name, surname, position title and start date"
+      - "Their department, desk or location, and whether they're in the office or hybrid"
       - "Cost centre for equipment"
-      - "Which systems, shared mailboxes and Teams channels they need"
+      - "Which software, systems, shared mailboxes and Teams channels they need"
     form_asks:
-      - q: "Starter's full name"
-      - q: "Position and department"
+      - q: "Department"
+        options: "HSE · Drilling Fluids · Steelhead · QICR · MANTL · Resources · Inspections · Finance/corporate"
+      - q: "Starter first name and surname"
+      - q: "Position title"
       - q: "Start date"
       - q: "Line manager"
-      - q: "Site and desk location"
+      - q: "Desk / location"
       - q: "Work pattern"
-        options: "Office · Hybrid · Mostly on site"
+        options: "Office · Hybrid"
       - q: "Cost centre for equipment"
-      - q: "Equipment needed"
-        options: "Standard office kit (laptop, dock, 2 monitors, keyboard and mouse, headset) · Extras such as webcam, spare charger or monitor arm · Mobile phone"
-      - q: "Software and systems needed"
-        options: "Microsoft 365 · Accounting system (say which role) · CRM or billing · PDF editor · Other"
-      - q: "Shared mailboxes, distribution lists, Teams channels and SharePoint folders to add them to"
-      - q: "Phone number or Teams Phone needed?"
+      - q: "Equipment required (tick all that apply)"
+        options: "Laptop · Docking station · Monitors x2 and cables · Monitor arm · Keyboard and mouse · Headset · Webcam · Laptop bag · Spare charger"
+      - q: "Other equipment needed (not listed above)"
+      - q: "Software and system access required"
+      - q: "Do they need a phone number or mobile phone?"
+        options: "Desk phone or softphone number · Mobile phone · Both · Neither · Not sure"
       - q: "Anything else IT should know?"
 
   - id: software
     title: "Software problem or question"
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UME1KSVBaRExEMzVPUTZKME1SSVhaQVRWNiQlQCN0PWcu"
     summary: "Something isn't working in a program, or you need help using it."
     examples: "Outlook won't send, Excel keeps crashing, can't join a Teams call"
     have_ready:
@@ -90,6 +98,7 @@ categories:
 
   - id: hardware
     title: "Laptop, phone or equipment problem"
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UQlRXQ0pFTU5XOEJEMDkwTlFVOURWWkkyWSQlQCN0PWcu"
     summary: "A device is broken, slow, damaged or not connecting."
     examples: "Laptop won't turn on, monitor not displaying, headset not working"
     have_ready:
@@ -105,6 +114,7 @@ categories:
 
   - id: account
     title: "Sign-in, password or Authenticator"
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UQjRJTjVGSldOTFFZOU1HTThQRTFST1A0NCQlQCN0PWcu"
     summary: "You can't sign in, or need help with the phone approval."
     examples: "Forgotten password, new phone, Authenticator not prompting"
     notice: "Never type your password into the form. IT will never ask for it."
@@ -120,6 +130,7 @@ categories:
 
   - id: access
     title: "Access to a folder, mailbox or system"
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UMDFHRUZOSjE0RERMVFdaM1VXWUo2UE5HUiQlQCN0PWcu"
     summary: "You need access to something, or someone else's access needs changing."
     examples: "Need the debtors folder, add me to a shared mailbox, remove a leaver"
     notice: "Access requests need your manager's approval. Include their name so IT can check with them."
@@ -137,6 +148,7 @@ categories:
 
   - id: other
     title: "Something else"
+    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UM0IzVVVVRlVGVTVCNFFFTUlKRTdNNENRUiQlQCN0PWcu"
     summary: "Not sure where it fits? Tell us here and we'll sort it."
     examples: "Website, printing, ordering equipment, general questions"
     have_ready:
