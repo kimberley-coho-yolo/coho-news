@@ -38,41 +38,57 @@ improvement:
 #  notice:     optional highlighted note
 #  form_url:   optional, a different form just for this category
 #  sign_in:    true if the form only accepts Coho work accounts
+#  forms:      a list of forms to fill in order (see new-starter). Use instead of form_url.
 #  skip_common: true hides the shared "common_asks" questions for this category
 # ------------------------------------------------------------------
 categories:
 
   - id: new-starter
     title: "Set up a new starter"
-    form_url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UNkhUTldDU1dXNzE5VUZCNTNNMDBLNDM0RiQlQCN0PWcu"
     skip_common: true
-    sign_in: true
-    summary: "Line managers: request equipment, software and access for someone joining Coho Group."
+    summary: "Line managers: onboard someone joining Coho Group, then request their IT equipment, software and access."
     examples: "New employee, contractor or transfer from another site"
-    notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested. IT will confirm the order and record asset numbers once equipment is issued."
+    notice: "Please lodge at least 10 business days before the start date, so equipment can be ordered and tested. Both forms need you to sign in with your Coho work account."
     have_ready:
-      - "Starter's first name, surname, position title and start date"
-      - "Their department, desk or location, and whether they're in the office or hybrid"
-      - "Cost centre for equipment"
-      - "Which software, systems, shared mailboxes and Teams channels they need"
-    form_asks:
-      - q: "Department"
-        options: "HSE · Drilling Fluids · Steelhead · QICR · MANTL · Resources · Inspections · Finance/corporate"
-      - q: "Starter first name and surname"
-      - q: "Position title"
-      - q: "Start date"
-      - q: "Line manager"
-      - q: "Desk / location"
-      - q: "Work pattern"
-        options: "Office · Hybrid"
-      - q: "Cost centre for equipment"
-      - q: "Equipment required (tick all that apply)"
-        options: "Laptop · Docking station · Monitors x2 and cables · Monitor arm · Keyboard and mouse · Headset · Webcam · Laptop bag · Spare charger"
-      - q: "Other equipment needed (not listed above)"
-      - q: "Software and system access required"
-      - q: "Do they need a phone number or mobile phone?"
-        options: "Desk phone or softphone number · Mobile phone · Both · Neither · Not sure"
-      - q: "Anything else IT should know?"
+      - "Starter's first name, surname, date of birth, home address and personal email (for payroll)"
+      - "Position title, department, start date and end date (if a fixed term)"
+      - "Whether they're an office or non-office user"
+      - "For IT equipment: desk or location, office or hybrid, cost centre, and the software and access they need"
+    # Two forms, filled in one after the other. Add or remove blocks to change the steps.
+    forms:
+      - title: "Request for Coho Group new starter"
+        url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UN1BOVFpLM04zMUlXUFpGNkVNWFYxUDQ3RCQlQCN0PWcu"
+        when: "Everyone starts here. Personal details are used for onboarding only."
+        asks:
+          - q: "First name and surname"
+          - q: "Date of birth"
+          - q: "Residential address"
+          - q: "Personal email address (for payroll links)"
+          - q: "Position title"
+          - q: "Department"
+            options: "HSE · Drilling Fluids · Steelhead · QICR · MANTL · Resources · Inspections · Finance/corporate"
+          - q: "Start date, and end date if fixed term"
+          - q: "What level of technology access is required?"
+            options: "Office user · Non-office user"
+          - q: "Do you need to request IT hardware for the new starter?"
+          - q: "Any other information required"
+      - title: "Request for IT hardware and software installation"
+        url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=5qkJ-EdlJUaJ97MnKR-lntTIaazKlYtOvymRqNu7cs5UNkhUTldDU1dXNzE5VUZCNTNNMDBLNDM0RiQlQCN0PWcu"
+        when: "Only if the starter needs IT equipment or software. Fill it in straight after form 1."
+        asks:
+          - q: "Department, starter's name, position title and start date"
+          - q: "Line manager"
+          - q: "Desk / location"
+          - q: "Work pattern"
+            options: "Office · Hybrid"
+          - q: "Cost centre for equipment"
+          - q: "Equipment required (tick all that apply)"
+            options: "Laptop · Docking station · Monitors x2 and cables · Monitor arm · Keyboard and mouse · Headset · Webcam · Laptop bag · Spare charger"
+          - q: "Other equipment needed"
+          - q: "Software and system access required"
+          - q: "Do they need a phone number or mobile phone?"
+            options: "Desk phone or softphone number · Mobile phone · Both · Neither · Not sure"
+          - q: "Anything else IT should know?"
 
   - id: software
     title: "Software problem or question"
