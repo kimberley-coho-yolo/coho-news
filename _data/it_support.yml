@@ -55,6 +55,10 @@ categories:
       - "Their department, desk or location, and whether they're in the office or hybrid"
       - "Cost centre for equipment"
       - "Which software, systems, shared mailboxes and Teams channels they need"
+      - "Starter's first name, surname, date of birth, home address and personal email (for payroll)"
+      - "Position title, department, start date and end date (if a fixed term)"
+      - "Whether they're an office or non-office user"
+      - "For IT equipment: desk or location, office or hybrid, cost centre, and the software and access they need"
     # Two forms, filled in one after the other. Add or remove blocks to change the steps.
     forms:
       - title: "Request for Coho Group new starter"
